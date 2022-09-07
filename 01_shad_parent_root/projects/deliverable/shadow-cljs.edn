@@ -1,0 +1,6 @@
+{:deps true
+ :builds
+ {:script
+  {:target :node-script
+   :output-to "out/test-deliverable.cjs"
+   :main cljs.test/report}}}
