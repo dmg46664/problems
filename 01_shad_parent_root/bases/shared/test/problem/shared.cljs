@@ -1,4 +1,4 @@
-(ns shared
+(ns problem.shared
   (:require [cljs.test :refer [testing is deftest]]))
 
 (deftest shared-test

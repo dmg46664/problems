@@ -1,12 +1,10 @@
-{
- :aliases
- {
-  :deliverableA
-  {:extra-paths ["./bases/shared/test"]
-   :deps {
-          thheller/shadow-cljs {:mvn/version "2.18.0"}
-          }
-   :main-opts ["-m" "shadow.cljs.devtools.cli"]
-   }
-  }
- }
+{:aliases  {:dev {:extra-paths ["development/src"]
+                  :extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}}}
+
+            :test {:extra-paths []}
+
+            :poly {:main-opts ["-m" "polylith.clj.core.poly-cli.core"]
+                   :extra-deps {polyfy/polylith
+                                {:git/url   "https://github.com/polyfy/polylith"
+                                 :sha       "ccc261e60f6a875ff30858bf84cf67be105eac6f"
+                                 :deps/root "projects/poly"}}}}}

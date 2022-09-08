@@ -5,4 +5,4 @@
  {:script
   {:target :node-script
    :output-to "out/test-deliverable.cjs"
-   :main shared/-main}}}
+   :main problem.shared/-main}}}
