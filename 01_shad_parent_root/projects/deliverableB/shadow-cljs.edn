@@ -1,4 +1,6 @@
-{:deps true
+{:dependencies []
+ :source-paths
+ ["../../bases/shared/test"]
  :builds
  {:script
   {:target :node-script
