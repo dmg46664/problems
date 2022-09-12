@@ -25,6 +25,9 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 ```
 
 The problem seems to be subpath imports
-
-
 https://nodejs.org/api/packages.html#subpath-imports
+
+manifesting here in the context of an ESM target.
+https://github.com/chalk/chalk/blob/main/package.json#L12
+
+Although I'm not familiar enough to be sure.
