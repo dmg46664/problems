@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "shadow-cljs": "^2.20.1"
+  }
+}

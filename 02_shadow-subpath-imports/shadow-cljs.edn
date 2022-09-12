@@ -1,0 +1,20 @@
+{
+ :deps true
+ :nrepl        {:port    9124}
+ :builds
+ {:script
+  {
+   ;; :target     :esm
+   ;; :output-to "out/test/test-daemon.cjs"
+   ;; :main launch-daemon/start-server!
+
+   :target :esm
+   :output-dir "out/test"
+   :modules {:test-daemon
+             {:init-fn hello/print-hello
+              :exports
+              {print-hello hello/print-hello 
+               }}}
+   }
+  }
+ }
