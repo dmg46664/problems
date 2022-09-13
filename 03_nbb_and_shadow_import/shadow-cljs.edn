@@ -1,0 +1,17 @@
+{
+ :source-paths ["."]
+ :dependencies [[applied-science/js-interop "0.3.3"]]
+ :builds
+ {:script
+  {:target :esm
+   :runtime :node
+   :output-dir "out/test"
+   :js-options {:js-provider :import}
+   :modules {:test-daemon
+             {:init-fn load-server/start_server!
+             :exports
+             {start_server load-server/start_server!}}
+             }
+   }
+  }
+ }
