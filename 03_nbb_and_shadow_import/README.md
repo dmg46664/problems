@@ -11,6 +11,18 @@ Could not resolve symbol: WebSocketServer
 Trying to compile and run shadow with the def line uncommented
 
 ```
+03_nbb_and_shadow_import  yarn shadow-cljs compile script
+yarn run v1.22.17
+warning package.json: No license field
+$ /Users/dmg46664/projects/problems/03_nbb_and_shadow_import/node_modules/.bin/shadow-cljs compile script
+shadow-cljs - config: /Users/dmg46664/projects/problems/03_nbb_and_shadow_import/shadow-cljs.edn
+[:script] Compiling ...
+[:script] Build completed. (46 files, 1 compiled, 0 warnings, 1.12s)
+✨  Done in 4.17s.
+```
+
+
+```
 03_nbb_and_shadow_import  node out/test/test-daemon.js
 file:///Users/dmg46664/projects/problems/03_nbb_and_shadow_import/out/test/cljs-runtime/load_server.js:3
 shadow.esm.esm_import$ws.WebSocketServer = (function (){var obj6659 = shadow.js.shim.module$ws$default;
