@@ -5,13 +5,12 @@
    [nbb.core :refer [await]]))
 
 
-;; This is a contrived example of a very typical
-;; layered use case of async functions called with
-;; some tolerance and logging. There is a gap in Promesa's
-;; documentation of just such an example.
+;; This is a contrived example of a very typical layered use case of async functions called with
+;; some tolerance and logging. There is a gap in Promesa's documentation of just such an example.
 
 ;; I wrote the following to try and figure this out
-;; for some database calls, but thought to do it as a contrived example first. I thought it would be good to post it publicly for comment, to help anyone in the same bind, and have for future reference. It's enough to get me going, but is partially incomplete.
+;; for some database calls, but thought to do it as a contrived example first. I thought it would be good to post it publicly for comment,
+;; to help anyone in the same bind, and have for future reference. It's enough to get me going, but is partially incomplete.
 
 ;; The use case is:
 ;; - Visit the zoo call
