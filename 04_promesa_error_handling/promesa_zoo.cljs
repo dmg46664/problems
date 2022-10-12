@@ -30,7 +30,8 @@
           _ (check-lion-cage) ;;TODO call lion-tamer if call fails. TODO Log failure.
           ;; other checks.
           ]
-    {:status 200} ;; not used due to error propogation, but need something in case this fn is called elsewhere/debug.
+    {:status 200} ;; not used due to error propogation, but need something in case this fn
+                  ;; is called elsewhere/debug.
     )
   )
 
@@ -43,16 +44,13 @@
      :message "welcome to the zoo"}
     ))
 
-;; Presumably I use p/catch, however
-;; it's not obvious from the documentation of p/catch
-;; whether the error is propogated or not.
-;; I.e. if the last line is an error is the returning promise
-;; rejected? I note that, not in the user guide, but in
-;; the api guide it states a resolved promise is returned,
-;; but this stuff is strange enough that a newcomer has
-;; to think the corner cases in the javascript model
-;; and then through the promesa model, whilest none of this
-;; stuff is intuitive (coming from a Java try/catch/finally way of thinking).
+;; Presumably I use p/catch, however it's not obvious from the documentation of p/catch
+;; whether the error is propogated or not. I.e. if the last line is an error is the
+;; returning promise rejected? I note that, not in the user guide, but in the api guide
+;; it states a resolved promise is returned, but this stuff is strange enough that a
+;; newcomer has to think the corner cases in the javascript model and then through the
+;; promesa model, whilest none of this stuff is intuitive (coming from a
+;; Java try/catch/finally way of thinking).
 
 ;; I came up with the following:
 
@@ -70,7 +68,9 @@
               (case (some-> error
                             (j/get :data nil)
                             :fail)
-                ;;TODO call lion-tamer here. Presumably if we wanted to recover and call the rest of check-cat-cages the catch should happen in check-lion-cages. If we did error handling in here, could we use a p/let in this anonymous function?
+                ;;TODO call lion-tamer here. Presumably if we wanted to recover and call the rest
+                ;; of check-cat-cages the catch should happen in check-lion-cages. If we did
+                ;; error handling in here, could we use a p/let in this anonymous function?
                 :lion-cage (throw error) ;;
 
                 ;; I guess there is not much value in wrapping this unless there is extra info.
