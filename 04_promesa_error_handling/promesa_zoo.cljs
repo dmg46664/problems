@@ -6,7 +6,7 @@
 
 
 ;; This is a contrived example of a very typical layered use case of async functions called with
-;; some tolerance and logging. There is a gap in Promesa's documentation of just such an example.
+;; some tolerance and logging.
 
 ;; I wrote the following to try and figure this out
 ;; for some database calls, but thought to do it as a contrived example first. I thought it would be good to post it publicly for comment,
@@ -67,9 +67,8 @@
               (case (some-> error
                             (j/get :data nil)
                             :fail)
-                ;;TODO call lion-tamer here. Presumably if we wanted to recover and call the rest
-                ;; of check-cat-cages the catch should happen in check-lion-cages. If we did
-                ;; error handling in here, could we use a p/let in this anonymous function?
+                ;;TODO call lion-tamer here. Not going to fix this, but presumably if we wanted to recover and call the rest
+                ;; of check-cat-cages the catch should happen in check-lion-cages.
                 :lion-cage (throw error) ;;
 
                 ;; I guess there is not much value in wrapping this unless there is extra info.
@@ -81,15 +80,19 @@
 (defn visit-zoo []
   (->
    (p/let [
-           _ (check-cat-cages) ;; TODO Should fail with "Zoo closed for maintenance."
+           _ (check-cat-cages)
            ;; other checks...
            ]
      {:status 200
       :message "welcome to the zoo"}
      )
    (p/catch (fn [error]
-              {:status 503
-               :message "Zoo closed for maintenance"}
+              ;; This is not needed but it's here just to demonstrate that you can put a
+              ;; promise in the catch handler, without landing up in a babushka promise
+              ;; situation (i.e. it's unpacked)
+              (p/resolved
+               {:status 503
+                :message "Zoo closed for maintenance"})
               ))
    ))
 
