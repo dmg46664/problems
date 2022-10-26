@@ -1,0 +1,9 @@
+{
+ :deps
+ {poly/base.build {:local/root "./bases/build"}}
+ :tasks
+ {:requires [[top.build.build :as build]]
+
+  justrun (exec 'build/justrun)
+  }
+ }
