@@ -22,5 +22,4 @@
   )
 
 (defn configure-logging! [args]
-  nil
-  )
+  (dimigi.logging.core/noop args))

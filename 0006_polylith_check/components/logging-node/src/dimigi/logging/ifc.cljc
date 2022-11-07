@@ -30,7 +30,7 @@
 
 (defn configure-logging! [args]
   #?(:cljs (logging-node/configure-logging! args)
-     ;;:clj (identity args)
+     :clj (identity args)
      )
   )
 

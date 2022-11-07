@@ -14,3 +14,7 @@
   )
   )
 
+(defn noop [args]
+  ;; noop
+  )
+
