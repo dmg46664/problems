@@ -1,0 +1,4 @@
+{:paths ["src" "resources"]
+ :deps {io.aviso/pretty {:mvn/version "0.1.36"}}
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps {}}}}
