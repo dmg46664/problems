@@ -1,0 +1,38 @@
+;; shadow-cljs configuration
+{
+ :deps true
+ :nrepl        {:port    9123}
+ :builds
+ {
+  ;; 
+  ;; example https://github.com/plexus/cljs-test-example/tree/main/shadow-node
+  :test
+  {:target     :node-test
+   :output-to "target/node_test.js"
+   :autorun true
+   :compiler-options {:output-feature-set :es6} ;;https://app.slack.com/client/T03RZGPFR/C0E1SN0NM/thread/C0E1SN0NM-1665725322.539589
+   :js-options {;; as opposed to node. Needed for react-dom/server or client.
+                :js-provider :shadow
+
+                ;; JS dependency "stream" is not available, it was required by
+                ;; https://clojurians.slack.com/archives/C6N245JGG/p1638188243456700
+                :keep-native-requires true
+
+                :js-package-dirs ["react-native/node_modules" ;; prioritise
+                                  "node_modules"]
+
+;; Hacks to disable these :requires in order to `bb shadow-test` using node-test framework.
+                :resolve
+                {}
+#_
+                {"react-native" false
+                          "react-native-fs" false
+                          ;;"react-dom/client" false
+                          ;;"create-react-class" false
+                          "react-native-ui-lib" false
+                          "react-native-gesture-handler" false
+                          "react-native-logs" false
+                          "react-native-reanimated" false
+                          "@shopify/react-native-skia" false
+                          "@shopify/flash-list" false}
+                }}}}

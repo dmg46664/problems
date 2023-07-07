@@ -1,0 +1,16 @@
+{:deps  {;; shadow-cljs will bring in all clojure and clojurescript dependencies
+         thheller/shadow-cljs      {:mvn/version "2.19.8"}
+         com.pitch/uix.core {:mvn/version "0.8.1"}
+         com.pitch/uix.dom {:mvn/version "0.8.1"}
+
+         }
+
+ :paths ["src"]
+
+ :aliases
+ {
+  ;; Required to get CLJS repl running in Emacs
+  :cider {:extra-deps {cider/cider-nrepl {:mvn/version "0.28.5"}}}
+
+  :test {:extra-paths ["test"]}
+  }}
