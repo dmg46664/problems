@@ -14,7 +14,7 @@
                           :justifyContent "center"}}
    ($ sk/Canvas #_ {:style #js {:flex 1}
                  }
-      ($ sk/Group {:blender-mode "multiply"}
+      ($ sk/Group {:blend-mode "multiply"}
          ($ sk/Circle {:cx r :cy r :r r :color "cyan"})
          ($ sk/Circle {:cx (- size r) :cy r :r r :color "magenta"})
          ($ sk/Circle {:cx (/ size 2) :cy (- size r) :r r :color "yellow"})))))
