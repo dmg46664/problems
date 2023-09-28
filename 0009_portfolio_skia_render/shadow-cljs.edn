@@ -4,7 +4,6 @@
             {:roots ["public" "public/standalone" "classpath:public"]}}
 
  :builds
- ;; yarn shadow-cljs watch :portfolio
  {:portfolio
   {:target :browser
    :output-dir "public/js" ;; TODO Figured this out. Update reference https://github.com/cjohansen/sasha/blob/main/shadow-cljs.edn

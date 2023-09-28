@@ -12,7 +12,7 @@
 
 (defscene react-native
   (r/as-element
-   [:> rn/TextASDFADS {} (str "Hello world!")
+   [:> rn/Text {} (str "Hello world!")
     ]
    ))
 
