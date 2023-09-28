@@ -6,16 +6,17 @@ https://github.com/cjohansen/portfolio/issues/12
 
 ```
 yarn install
-yarn shadow-cljs -A:portfolio watch :portfolio
+yarn shadow-cljs -A:standalone watch :standalone
 ```
 
-Visit http://localhost:8082/
+Visit http://localhost:8082/standalone/
 
 ## To run portfolio:
 
 ```
 yarn install
-yarn shadow-cljs -A:standalone watch :standalone
+yarn shadow-cljs -A:portfolio watch :portfolio
 ```
 
-Visit http://localhost:8082/standalone/
+Visit http://localhost:8082/
+
