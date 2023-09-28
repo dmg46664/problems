@@ -1,5 +1,7 @@
 # Problem with rendering react-native-skia canvas with Portfolio
 
+https://github.com/cjohansen/portfolio/issues/12
+
 ## To run standalone:
 
 ```
