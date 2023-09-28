@@ -4,3 +4,4 @@ node_modules/
 out/
 **/.clj-kondo/
 **/.lsp/
+**/cljs-runtime/
