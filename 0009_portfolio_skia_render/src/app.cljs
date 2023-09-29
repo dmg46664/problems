@@ -9,14 +9,13 @@
 (def size 256)
 (def r (* size 0.33))
 
-#_#_
-(def font-style #js {:fontFamily "FiraCode"
-          :fontSize 14
-          :fontStyle "normal"
-          :fontWeight "normal"
-          })
+;; (def font-style #js {:fontFamily "FiraCode"
+;;           :fontSize 14
+;;           :fontStyle "normal"
+;;           :fontWeight "normal"
+;;           })
 
-(def font (sk/matchFont font-style))
+;; (def font (sk/matchFont font-style))
 
 (defui skia-canvas []
   (let [font (sk/useFont "http://localhost:8082/FiraCode-Regular.ttf")
