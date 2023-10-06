@@ -1,0 +1,46 @@
+{:deps true
+
+ :dev-http {8082
+            {:roots ["public" "public/standalone" "classpath:public"]}}
+
+ :builds
+ {:portfolio
+  {:target :browser
+   :output-dir "public/js" ;; TODO Figured this out. Update reference https://github.com/cjohansen/sasha/blob/main/shadow-cljs.edn
+   :js-options
+   {:extensions [".web.js" ".js" ".json"]
+    :resolve {"react-native" {:target :npm
+                              :require "react-native-web"}}}
+   :module-loader true ;; required for lazy/loadable code to work
+   :modules {;; Everything that isn't constrained by the other modules will be moved here.
+             ;; Every namespace MUST be partitioned into one of the 3. If only 2 exist this can lead to undesirable moves
+             ;; if a lib is dependended by both, and then your namespaces get moved accordingly.
+
+             :main {:init-fn portfolio/init
+                    :depends-on #{:shared}}
+
+             :shared {:entries []}
+
+             :app {:entries [app]
+                   :depends-on #{:shared}}}}
+
+  :standalone
+  {:target :browser
+   :output-dir "public/js" ;; TODO Figured this out. Update reference https://github.com/cjohansen/sasha/blob/main/shadow-cljs.edn
+   :js-options
+   {:js-provider :external
+    :external-index "dist/externs.js"
+    :extensions [".web.js" ".js" ".json"]
+    :resolve {"react-native" {:target :npm
+                              :require "react-native-web"}}}
+   :module-loader true ;; required for lazy/loadable code to work
+   :modules {;; Everything that isn't constrained by the other modules will be moved here.
+             ;; Every namespace MUST be partitioned into one of the 3. If only 2 exist this can lead to undesirable moves
+             ;; if a lib is dependended by both, and then your namespaces get moved accordingly.
+
+             :main {:init-fn standalone/init
+                    :depends-on #{:shared}}
+
+             :shared {:entries []}
+             :app {:entries [app]
+                   :depends-on #{:shared}}}}}}
