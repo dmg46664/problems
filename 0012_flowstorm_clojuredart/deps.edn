@@ -1,0 +1,33 @@
+{
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+
+        tensegritics/clojuredart
+        {:git/url "https://github.com/tensegritics/ClojureDart.git"
+           :sha "7b6b417a0feb83dd3070d5171f70b251bcbea7d6"}
+        #_{:local/root "../../../ClojureDart"}
+        }
+
+ :aliases {:cljd {:main-opts ["-m" "cljd.build"]
+                  :extra-paths ["src"]}
+           #_#_
+           :test {:extra-paths ["src"]
+                  :extra-deps  {}}
+
+           :flowstorm {:extra-paths ["flowstorm"]
+                       ;; for disabling the official compiler
+                       :classpath-overrides {org.clojure/clojure nil}
+                       :extra-deps {com.github.flow-storm/clojure {:mvn/version  "1.11.4-1"}
+                                    com.github.flow-storm/flow-storm-dbg {:mvn/version "3.17.4"}}
+                       :jvm-opts ["-Dclojure.storm.instrumentEnable=true"
+                                  "-Dclojure.storm.instrumentOnlyPrefixes=cljd.compiler."]}
+
+           :repl/basic
+           {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
+                         cider/cider-nrepl {:mvn/version "0.30.0"}}
+            :main-opts  ["-m" "nrepl.cmdline"
+                         "--middleware" "[cider.nrepl/cider-middleware]"
+                         "--interactive"]}
+           }
+
+ :cljd/opts {:kind :flutter
+             :main dmg46664.please-convert}}

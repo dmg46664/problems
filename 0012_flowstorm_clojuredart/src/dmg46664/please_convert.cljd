@@ -1,0 +1,29 @@
+(ns dmg46664.please-convert
+  (:require ["package:flutter/material.dart" :as m]
+            [cljd.flutter :as f]))
+
+
+(defn gensyms [amt]
+  (vec (repeatedly amt gensym)))
+
+(defmacro mk-comp-navs []
+  ;; rest of fn removed...
+  (gensyms 1)
+  )
+
+
+(defn main []
+  (f/run
+    (m/MaterialApp
+      .title "Welcome to Flutter"
+      .theme (m/ThemeData .primarySwatch m.Colors/pink))
+    .home
+    (m/Scaffold
+      .appBar (m/AppBar
+                .title (m/Text "Welcome to ClojureDart")))
+    .body
+    m/Center
+    (m/Text "Let's get coding!!!"
+       .style (m/TextStyle
+                .color m.Colors/green
+                .fontSize 32.0))))

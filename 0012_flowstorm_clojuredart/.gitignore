@@ -1,0 +1,23 @@
+.gitattributes
+.dart_tool/
+.idea/
+.metadata
+analysis_options.yaml
+android/
+cljd_0012_flowstorm_clojuredart.iml
+ios/
+lib/
+linux/
+macos/
+pubspec.lock
+pubspec.yaml
+test/
+web/
+windows/
+
+
+# ClojureDart
+.cpcache/
+.clojuredart/
+lib/cljd-out/
+test/cljd-out/
