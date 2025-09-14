@@ -290,7 +290,7 @@
     (cond
       (empty? exchanges) (throw (ex-message "You didn't add any exchanges."))
       (empty? letters) (throw (ex-message "You didn't add any letter/letters")))
-    (setup-extract-config!)
+    #_(setup-extract-config!)
     (t/set-level! :debug)
     #_(extract-macrotrends-range!
      (map #(keyword %) exchanges)
