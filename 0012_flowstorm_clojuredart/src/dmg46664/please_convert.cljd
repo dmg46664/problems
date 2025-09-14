@@ -11,11 +11,10 @@
   (gensyms 1)
   )
 
-
 (defn main []
   (f/run
     (m/MaterialApp
-      .title "Welcome to Flutter"
+      .title "Welcome to Flutter!"
       .theme (m/ThemeData .primarySwatch m.Colors/pink))
     .home
     (m/Scaffold

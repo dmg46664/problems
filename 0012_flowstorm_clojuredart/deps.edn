@@ -2,9 +2,10 @@
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}
 
         tensegritics/clojuredart
+        #_
         {:git/url "https://github.com/tensegritics/ClojureDart.git"
            :sha "7b6b417a0feb83dd3070d5171f70b251bcbea7d6"}
-        #_{:local/root "../../../ClojureDart"}
+        {:local/root "../../ClojureDart"} ;; assumed local directory
         }
 
  :aliases {:cljd {:main-opts ["-m" "cljd.build"]
@@ -17,9 +18,9 @@
                        ;; for disabling the official compiler
                        :classpath-overrides {org.clojure/clojure nil}
                        :extra-deps {com.github.flow-storm/clojure {:mvn/version  "1.11.4-1"}
-                                    com.github.flow-storm/flow-storm-dbg {:mvn/version "3.17.4"}}
+                                    com.github.flow-storm/flow-storm-dbg {:mvn/version "4.0.1"}}
                        :jvm-opts ["-Dclojure.storm.instrumentEnable=true"
-                                  "-Dclojure.storm.instrumentOnlyPrefixes=cljd.compiler."]}
+                                  "-Dclojure.storm.instrumentOnlyPrefixes=cljd.compiler"]}
 
            :repl/basic
            {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}

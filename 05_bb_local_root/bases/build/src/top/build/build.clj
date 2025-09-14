@@ -1,5 +1,5 @@
 (ns top.build.build)
 
-(defn justrun []
+(defn justrun [& _args]
   (println "Hello world!"))
 
