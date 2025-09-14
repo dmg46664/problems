@@ -1,0 +1,10 @@
+{:tasks
+ {
+  nrepl (shell "clj -M:repl/basic")
+
+  extract-all (shell "clj -M:extract-all")
+
+  extract-select (shell "clj"  "-M:extract-select" ":exchanges" "NYSE" "NASDAQ" "FTSE100" ":char-range" "a" "c")}
+
+ }
+

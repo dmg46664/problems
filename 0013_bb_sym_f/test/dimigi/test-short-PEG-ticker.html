@@ -1,0 +1,258 @@
+<html>
+
+
+<head>
+
+	<meta name="robots" content="noindex,nofollow" />
+
+	<!-- Load in Roboto Font -->
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,600,700'>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!--for Bootstrap CDN version-->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+	<!-- Amcharts Files -->		
+	<script src="/assets/php/charts/amcharts/amcharts.js" type="text/javascript"></script>
+	<script src="/assets/php/charts/amcharts/serial.js" type="text/javascript"></script>
+	<script src="/assets/php/charts/amcharts/themes/light.js" type="text/javascript"></script>
+	<script src="/assets/php/charts/amcharts/amstock.js" type="text/javascript"></script>  
+	<script type="text/javascript" src="/assets/php/charts/amcharts/plugins/export/export.min.js?version="></script>
+	<script type="text/javascript" src="/assets/php/charts/amcharts/plugins/export/libs/fabric.js/fabric.min.js?version="></script>
+	<script type="text/javascript" src="/assets/php/charts/amcharts/plugins/export/libs/FileSaver.js/FileSaver.js?version="></script>
+	<link rel="stylesheet" href='/assets/php/charts/amcharts/plugins/export/export.css' type='text/css' media='all'/>		
+
+
+	<style>
+	
+		html {
+		width:100%;
+		position: relative;
+		min-height: 100%;
+	}
+
+	body {
+		
+		width:100%;
+
+		/* Margin bottom by footer height */
+		  margin-bottom: 80px;
+		  color: #444;
+		  background-color:#fff;
+		  font-family: 'Roboto', sans-serif;
+		  font-size:14px;
+	}
+
+	</style>
+
+</head>
+
+<body>
+
+<div id="chartdiv" style="font-size:14px; width:800px; height:650px; background_color:#fff; padding:20px;"></div><script>
+
+var chartData = [{"date":"2009-12-31","v1":12.035,"v2":2.515,"v3":"NULL"},{"date":"2010-03-31","v1":11.688,"v2":3.573,"v3":-8.85},{"date":"2010-06-30","v1":11.489,"v2":2.361,"v3":-7.77}]
+
+var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "stock",
+  "dataDateFormat": "YYYY-MM-DD",
+  "precision": 0,
+  "export": {
+		"enabled": true,
+		"menu": [],
+		"libs": {
+			"autoLoad": false
+		}
+	},   
+  "fontSize":14,
+  "theme": "light",
+  "dataSets": [ {
+    "fieldMappings": [{
+      "fromField": "v1",
+      "toField": "v1"
+    }, {
+      "fromField": "v2",
+      "toField": "v2"
+    }, {
+      "fromField": "v3",
+      "toField": "v3"
+    }],
+    "color": "#7f8da9",
+    "dataProvider": chartData,
+    "categoryField": "date"
+  } ],
+	
+  "panels": [ 
+  
+  {
+      "showCategoryAxis": false,
+      "percentHeight": 34,
+      "valueAxes": [ {
+        "id": "v1",
+        "dashLength": 5,
+	    "title": "Trailing 12 Months",
+	    "titleRotation":270,
+	    "inside":false,
+	    "logarithmic": false
+      } ],
+
+      "stockGraphs": [ {
+        "type": "column",
+        "id": "g1",
+ 		"precision": 3,
+        "valueField": "v1",
+        "fillColors": "#5B9BD5",
+        "lineColor": "#5B9BD5",
+		"useDataSetColors": false,
+		"bullet":"none",
+		"bulletSize": 8,		
+		"lineThickness": 1,
+		"lineAlphas":1,
+        "fillAlphas": 1,
+        "showBalloon": true,
+		"balloonText": "<table style='font-size:14px;'><tr><td>$[[value]]B</td></tr></table>",
+      } ]
+    },
+  
+  {
+      "showCategoryAxis": false,
+      "percentHeight": 33,
+      "valueAxes": [ {
+        "id": "v1",
+        "dashLength": 5,
+	    "title": "Quarterly",
+	    "titleRotation":270,
+	    "inside":false,
+	    "logarithmic": false
+      } ],
+
+      "stockGraphs": [ {
+        "type": "column",
+        "id": "g2",
+ 		"precision": 3,
+        "valueField": "v2",
+        "fillColors": "#5B9BD5",
+        "lineColor": "#5B9BD5",
+		"useDataSetColors": false,
+		"bullet":"none",
+		"bulletSize": 8,
+		"lineThickness": 1,
+		"lineAlphas": 1,
+        "fillAlphas": 1,
+        "showBalloon": true,
+		"balloonText": "<table style='font-size:14px;'><tr><td>$[[value]]B</td></tr></table>",
+      } ]
+    },
+    {
+      "percentHeight": 33,
+      "marginTop": 1,
+      "showCategoryAxis": true,
+      "valueAxes": [ {
+        "id": "v2",
+        "dashLength": 5,
+	    "title": "YoY Quarterly Growth",
+	    "titleRotation":270,
+	    "inside":false,
+	    "logarithmic": false	
+		} ],
+
+      "stockGraphs": [ {
+        "type": "column",
+        "id": "g3",
+		"precision": 2,
+        "valueField": "v3",
+        "fillColors": "#008000",
+        "lineColor": "#008000",
+        "negativeFillColors": "#FF0000",
+        "negativeLineColor": "#FF0000",
+		"useDataSetColors": false,
+		"lineAlphas":1,
+        "fillAlphas": 1,
+        "showBalloon": true,
+		"balloonText": "<table style='font-size:14px;'><tr><td>[[value]]%</td></tr></table>",
+      } ]
+    }	
+  ],
+  
+"panelsSettings": {
+	"marginLeft": 30,
+	"marginRight": 20,
+	"marginTop": 10,
+	"marginBottom":0,
+	"startDuration": 0
+	},
+
+  "categoryAxesSettings": {
+	"minPeriod": "DD",
+	"groupToPeriods": ['DD'],
+	"equalSpacing": true,
+	"fontSize":14
+  },
+	
+
+  "chartScrollbarSettings": {
+    "graph": "g1",
+    "graphType": "line"
+  },
+
+    "chartCursorSettings": {
+		"categoryBalloonDateFormats": [
+		{period:'DD',format:'MM/DD/YYYY'},
+		{period:'WW',format:'MM/DD/YYYY'},
+		{period:'MM',format:'MM/DD/YYYY'},
+		{period:'YYYY',format:'YYYY'}],
+		"fullWidth": false,
+		"bulletsEnabled": true,
+		"bulletSize": 10,
+        "valueBalloonsEnabled": true,
+		"fontSize": 14,
+		"cursorColor": '#000000',
+		"cursorAlpha": 0.34,
+		"zoomable": true
+    },
+  
+	"balloon": {	
+		"fontSize": 14,
+		"cornerRadius": 0,
+		"borderThickness": 1,
+		"fillAlpha": .94
+	},
+	
+	"periodSelector": {
+		"enabled": true,
+		"periodsText": "Zoom: ",
+		"position": "top",
+		"fontSize": 14,
+		"inputFieldsEnabled": true,
+		"dateFormat": "MM/DD/YYYY",
+		"fromText": "From: ",
+		"toText": " To: ",
+		"periods": [{
+			"period": "YYYY",
+			"count": 1,
+			"label": " 1Y "
+		}, {
+			"period": "YYYY",
+			"count": 2,
+			"label": " 2Y "
+		}, {
+			"period": "YYYY",
+			"count": 3,
+			"label": " 3Y "
+		}, {
+			"period": "YYYY",
+			"count": 5,
+			"label": " 5Y "
+		}, {
+			"selected": true,
+			"period": "MAX",
+			"label": " All "
+		}]
+	}
+} );
+</script>
+
+</body>
+
+</html>	
+
