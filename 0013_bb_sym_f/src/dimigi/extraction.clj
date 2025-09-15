@@ -98,7 +98,7 @@
 
 
 (defn slurp-and-extract-ADVFN-listings-by-letter! [url regex letter]
-((->>
+(->>
    (str url letter)
    #_(slurp)
 
