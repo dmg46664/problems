@@ -90,14 +90,20 @@
        (map second)
        distinct))
 
+(comment
+
+  (http/get "https://www.advfn.com/nasdaq/nasdaq.asp?companies=Z"
+             )
+  )
+
+
 (defn slurp-and-extract-ADVFN-listings-by-letter! [url regex letter]
-#_  #_((slurp
+((->>
    (str url letter)
    #_(slurp)
 
 
-   (http/get "https://www.advfn.com/nasdaq/nasdaq.asp?companies=Z"
-             )
+   (http/get)
 
    
       
