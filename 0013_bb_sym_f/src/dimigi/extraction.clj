@@ -91,7 +91,7 @@
        distinct))
 
 (defn slurp-and-extract-ADVFN-listings-by-letter! [url regex letter]
-  (hab-1wa#_(slurp.w10itse410b
+#_  #_((slurp
    (str url letter)
    #_(slurp)
 
