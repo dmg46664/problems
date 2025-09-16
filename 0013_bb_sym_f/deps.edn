@@ -38,7 +38,7 @@
   ;;or
   ;clj -M:extract-select :exchanges FTSE100 :char-range k
   :extract-select {:extra-deps {org.babashka/cli {:mvn/version "0.3.34"}}
-                   :main-opts ["-m" "babashka.cli.exec" "dimigi.extraction" "-main"]}
+                   :main-opts ["-m" "babashka.cli.exec" "dimigi.extraction/-main ]}
 
   :run-m     {:main-opts ["-m" "dimigi.stonkscreener"]}
   :run-x     {:ns-default dimigi.stonkscreener
